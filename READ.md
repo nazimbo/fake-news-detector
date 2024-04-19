@@ -5,3 +5,9 @@ This project is a fake news detector that uses a machine learning model to class
 ## Dataset
 
 The dataset used to train the model is from Kaggle (https://www.kaggle.com/code/therealsampat/fake-news-detection/input). The dataset contains two CSV files, one with fake news articles and one with real news articles.
+
+## Step 1: Data Preparing
+
+The first step is to prepare the data for training the model. This involves loading the data, adding a label to each article (fake or real), and combining the two datasets into one shuffled dataset. The function `prepare_data` in `data_functions.py` does this.
+
+## Step 2: Data Cleaning

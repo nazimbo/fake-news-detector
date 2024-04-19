@@ -1,9 +1,6 @@
-from data_functions import prepare_data
+from data_functions import *
 import pandas as pd
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-import re
+
 
 fake_news = pd.read_csv("dataset/fake.csv")
 true_news = pd.read_csv("dataset/true.csv")

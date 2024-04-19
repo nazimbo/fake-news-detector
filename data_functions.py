@@ -1,4 +1,8 @@
 import pandas as pd
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+import re
 
 
 def prepare_data(df_fake, df_true):
@@ -26,3 +30,7 @@ def prepare_data(df_fake, df_true):
     df = df.sample(frac=1).reset_index(drop=True)
 
     return df
+
+
+def clean_text(text):
+    text = text.lower()
