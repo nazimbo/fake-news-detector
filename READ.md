@@ -8,6 +8,8 @@ The dataset used to train the model is from Kaggle (https://www.kaggle.com/code/
 
 ## Step 1: Data Preparing
 
-The first step is to prepare the data for training the model. This involves loading the data, adding a label to each article (fake or real), and combining the two datasets into one shuffled dataset. The function `prepare_data` in `data_functions.py` does this.
+The first step is to prepare the data for training the model. This involves loading the data, removing useless columns, adding a label to each article (fake or real), and combining the two datasets into one shuffled dataset. The function `prepare_data` in `data_functions.py` does this.
 
 ## Step 2: Data Cleaning
+
+The next step is to clean the data. This involves lowercasing the text, replacing all non alphabetical characters with spaces, removing stopwords, and lemmatizing the text. The function `clean_data` in `data_functions.py` does this.

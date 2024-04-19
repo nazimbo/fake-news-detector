@@ -34,3 +34,19 @@ def prepare_data(df_fake, df_true):
 
 def clean_text(text):
     text = text.lower()
+    text = re.sub(r'[^a-zA-Z]', ' ', text)
+
+    # Tokenization (splitting the text into words)
+    text = text.split()
+
+    # Removing stopwords (common words that do not carry much information, such as 'the', 'a', 'is')
+    stop_words = set(stopwords.words("english"))
+    text = [word for word in text if word not in stop_words]
+
+    # Lemmatization (converting words to their base form, such as 'running' to 'run')
+    lemmatizer = WordNetLemmatizer()
+    text = [lemmatizer.lemmatize(word) for word in text]
+
+    cleaned_text = " ".join(text)
+
+    return cleaned_text
