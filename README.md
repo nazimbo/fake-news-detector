@@ -14,7 +14,11 @@ The first step is to prepare the data for training the model. This involves load
 
 The next step is to clean the data. This involves lowercasing the text, replacing all non alphabetical characters with spaces, removing stopwords, and lemmatizing the text. The function `clean_data` in `data_functions.py` does this.
 
-## Step 3: Feature Extraction
+## Step 3: Data Splitting
+
+The next step is to split the data into training and testing sets. We will use 80% of the data for training and 20% for testing.
+
+## Step 4: Data Vectorization
 
 We now need to convert the text data into numerical data that the machine learning model can understand. This is done using the TF-IDF vectorizer.
 

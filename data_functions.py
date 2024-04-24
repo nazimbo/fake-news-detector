@@ -22,8 +22,9 @@ def prepare_data(df_fake, df_true):
     # Checking for missing values
     print(f'''Missing values:
     {df.isnull().sum()}
-        ''')
+    ''')
 
+    # Checking the number of fake and true news
     print(f"Fake news: {df['label'].value_counts()[1]}")
     print(f"True news: {df['label'].value_counts()[0]}")
 
@@ -34,7 +35,13 @@ def prepare_data(df_fake, df_true):
 
 
 def clean_text(text):
+    # Converting the text to lowercase
     text = text.lower()
+
+    # Removing URLs
+    text = re.sub(r'http\S+', '', text)
+
+    # Removing non-alphabetic characters
     text = re.sub(r'[^a-zA-Z]', ' ', text)
 
     # Tokenization (splitting the text into words)
