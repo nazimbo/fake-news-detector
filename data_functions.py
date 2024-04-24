@@ -1,3 +1,4 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import nltk
 from nltk.corpus import stopwords

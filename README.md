@@ -17,8 +17,10 @@ The next step is to clean the data. This involves lowercasing the text, replacin
 ## Step 3: Feature Extraction
 
 We now need to convert the text data into numerical data that the machine learning model can understand. This is done using the TF-IDF vectorizer.
-TF-IDF stands for Term Frequency-Inverse Document Frequency. It is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
 
+### TF-IDF
+
+TF-IDF stands for Term Frequency-Inverse Document Frequency. It is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
 Term Frequency of a word in a document = (Number of times the `word` appears in the document) / (Total number of words in the document)
 
 Inverse Document Frequency of a word = log((Total number of documents) / (Number of documents containing the `word`))
