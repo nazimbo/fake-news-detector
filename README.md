@@ -16,7 +16,7 @@ The next step is to clean the data. This involves lowercasing the text, replacin
 
 ## Step 3: Data Splitting
 
-The next step is to split the data into training and testing sets. We will use 80% of the data for training and 20% for testing.
+The next step is to split the data into training and testing sets. We will use 80% of the data for training and 20% for testing. We use the `train_test_split` function from the `sklearn` library to do this.
 
 ## Step 4: Data Vectorization
 

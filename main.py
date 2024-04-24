@@ -1,6 +1,7 @@
-from sklearn.model_selection import train_test_split
 from data_functions import *
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 # fake_news = pd.read_csv("dataset/fake.csv")
@@ -13,13 +14,15 @@ import pandas as pd
 
 # print(dataset.head(20))
 
+# # remove the rows with empty text
+# dataset = dataset[dataset["text"] != ""]
+
 # # Save the cleaned dataset
 # dataset.to_csv("dataset/cleaned_dataset.csv", index=False)
 
 
 # Load the cleaned dataset
 dataset = pd.read_csv("dataset/cleaned_dataset.csv")
-print(dataset.head(20))
 
 # Split the dataset into features and labels
 x, y = dataset["text"], dataset["label"]
@@ -28,7 +31,9 @@ x, y = dataset["text"], dataset["label"]
 x_train, x_test, y_train, y_test = train_test_split(
     x, y, test_size=0.2)
 
-print(f"Training set: {x_train.shape[0]} samples")
-print(f"Testing set: {x_test.shape[0]} samples")
-print(f"Training labels: {y_train.shape[0]} samples")
-print(f"Testing labels: {y_test.shape[0]} samples")
+# Initialize the TfidfVectorizer
+vectorizer = TfidfVectorizer()
+
+# Fit and transform the training data
+x_train_vectorized = vectorizer.fit_transform(x_train)
+x_test_vectorized = vectorizer.transform(x_test)
