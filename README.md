@@ -25,8 +25,15 @@ We now need to convert the text data into numerical data that the machine learni
 ### TF-IDF
 
 TF-IDF stands for Term Frequency-Inverse Document Frequency. It is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
+
+<details>
+<summary>TF-IDF</summary>
 Term Frequency of a word in a document = (Number of times the `word` appears in the document) / (Total number of words in the document)
 
 Inverse Document Frequency of a word = log((Total number of documents) / (Number of documents containing the `word`))
 
 TF-IDF of a word in a document = (Term Frequency of the word in the document) \* (Inverse Document Frequency of the `word`)
+
+</details>
+
+We use the `TfidfVectorizer` class from the `sklearn` library to convert the text data into TF-IDF vectors.
