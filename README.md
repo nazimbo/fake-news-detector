@@ -37,3 +37,6 @@ TF-IDF of a word in a document = (Term Frequency of the word in the document) \*
 </details>
 
 We use the `TfidfVectorizer` class from the `sklearn` library to convert the text data into TF-IDF vectors.
+This class has a `transform` and a `fit_transform` methods that can be used to convert the text data into numerical matrices.
+We first apply the `fit_transform` method on the training data so the vectorizer learns the vocabulary and the IDF from the training data `x_train`. It then transformes this data into a numerical matrix representation.
+We then apply the same transformation learned from the training data on the testing data `x_test` using the `transform` method. This ensures that the testing data is transformed in the same way as the training data using the same vocabulary and IDF values.
