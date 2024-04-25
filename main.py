@@ -40,6 +40,7 @@ vectorizer = TfidfVectorizer()
 x_train_vectorized = vectorizer.fit_transform(x_train)
 x_test_vectorized = vectorizer.transform(x_test)
 
+
 # Initialize the Logistic Regression model
 model = LogisticRegression()
 
