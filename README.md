@@ -44,3 +44,8 @@ We then apply the same transformation learned from the training data on the test
 ## Step 5: Model Training
 
 We will use the `LogisticRegression` class from the `sklearn` library to train the model. We first create an instance of the `LogisticRegression` class and then call the `fit` method on the training data to train the model.
+
+Work in progress... Next steps will include:
+
+- Using different models
+- Saving the trained model to a file and using it to classify new articles
