@@ -1,3 +1,79 @@
-/.venv
+# Fichiers de configuration de l'environnement
+.env
+.env.local
+.env.*.local
+
+# Dossiers node_modules
+/node_modules/
+node_modules
+
+# Dossier dist (distributions compilées)
+/dist/
+
+# Cache de l'éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dossiers spécifiques à Python
 __pycache__/
-notes.txt
+*.py[cod]
+*.pyo
+
+# Fichiers de cache et de logs pour npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers spécifiques aux environnements virtuels Python
+venv/
+*.venv
+env/
+*.env
+
+# Fichiers de base de données locales
+*.sqlite3
+*.db
+
+# Fichiers de logs
+*.log
+
+# Fichiers de configurations personnelles
+*.iml
+.idea/
+
+# Fichiers de paquet
+*.jar
+*.war
+*.ear
+
+# Dossiers de construction et de compilation
+build/
+target/
+out/
+
+# Fichiers de sauvegarde créés par des éditeurs Windows
+*.bak
+
+# Fichiers de sauvegarde créés par macOS
+.DS_Store
+
+# Fichiers de sauvegarde créés par Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Fichiers archive (vous pouvez vouloir les garder dans certains cas)
+# *.zip
+# *.tar
+# *.gz
+
+# Fichiers spécifiques à l'outil de build de npm
+.lock-wscript
+
+# Dossiers de profilage
+pids
+*.pid
+*.seed
+*.pid.lock
