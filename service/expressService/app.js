@@ -12,8 +12,9 @@ app.post('/scrape', async (req, res) => {
   try {
     const response = await axios.get(url);
     const $ = cheerio.load(response.data);
-    const bodyContent = $('body').html();
-    res.json({ body: bodyContent });
+    // Utiliser .text() pour obtenir uniquement le texte sans les balises HTML
+    const bodyText = $('body').text();
+    res.json({ body: bodyText });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch data' });
   }
