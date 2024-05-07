@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
@@ -41,7 +42,6 @@ vectorizer = TfidfVectorizer()
 # Fit and transform the training data
 x_train_vectorized = vectorizer.fit_transform(x_train)
 x_test_vectorized = vectorizer.transform(x_test)
-
 
 # Initialize the Logistic Regression model
 model = LogisticRegression()

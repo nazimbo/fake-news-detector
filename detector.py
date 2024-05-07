@@ -7,7 +7,9 @@ model = load('model.joblib')
 # Load the vectorizer
 vectorizer = load('vectorizer.joblib')
 
-new_article = "The Israeli military seized control of the Rafah border crossing between the Gaza Strip and Egypt on Tuesday and its tanks pushed into the southern Gazan town of Rafah after a night of air strikes on the Palestinian enclave."
+new_article = '''
+
+'''
 new_article = clean_text(new_article)
 
 new_article_vectorized = vectorizer.transform([new_article])
