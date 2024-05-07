@@ -1,4 +1,3 @@
-from joblib import load
 from joblib import dump
 from data_functions import *
 import pandas as pd
@@ -26,66 +25,46 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 # PART 2
 
-# # Load the cleaned dataset
-# dataset = pd.read_csv("dataset/cleaned_dataset.csv")
+# Load the cleaned dataset
+dataset = pd.read_csv("dataset/cleaned_dataset.csv")
 
-# # Split the dataset into features and labels
-# x, y = dataset["text"], dataset["label"]
+# Split the dataset into features and labels
+x, y = dataset["text"], dataset["label"]
 
-# # Split the dataset into training and testing sets (80% training, 20% (0.2) testing)
-# x_train, x_test, y_train, y_test = train_test_split(
-#     x, y, test_size=0.2)
+# Split the dataset into training and testing sets (80% training, 20% (0.2) testing)
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.2)
 
-# # Initialize the TfidfVectorizer
-# vectorizer = TfidfVectorizer()
+# Initialize the TfidfVectorizer
+vectorizer = TfidfVectorizer()
 
-# # Fit and transform the training data
-# x_train_vectorized = vectorizer.fit_transform(x_train)
-# x_test_vectorized = vectorizer.transform(x_test)
-
-
-# # Initialize the Logistic Regression model
-# model = LogisticRegression()
-
-# # Train the model
-# model.fit(x_train_vectorized, y_train)
-
-# # Test the model
-# y_pred = model.predict(x_test_vectorized)
-
-# # Calculate the accuracy
-# accuracy = accuracy_score(y_test, y_pred)
-# print(f"Accuracy: {accuracy}")
-
-# # Display the classification report
-# print(classification_report(y_test, y_pred))
-
-# # Display the confusion matrix
-# print(confusion_matrix(y_test, y_pred))
+# Fit and transform the training data
+x_train_vectorized = vectorizer.fit_transform(x_train)
+x_test_vectorized = vectorizer.transform(x_test)
 
 
-# # Save the model
-# dump(model, 'model.joblib')
+# Initialize the Logistic Regression model
+model = LogisticRegression()
 
-# # Save the vectorizer
-# dump(vectorizer, 'vectorizer.joblib')
+# Train the model
+model.fit(x_train_vectorized, y_train)
 
-# PART 3
+# Test the model
+y_pred = model.predict(x_test_vectorized)
 
-# Load the model
-model = load('model.joblib')
+# Calculate the accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
 
-# Load the vectorizer
-vectorizer = load('vectorizer.joblib')
+# Display the classification report
+print(classification_report(y_test, y_pred))
 
-new_article = "The president of the United States is the head of state and head of government of the United States, indirectly elected to a four-year term by the people through the Electoral College. The officeholder leads the executive branch of the federal government and is the commander-in-chief of the United States Armed Forces."
-new_article = clean_text(new_article)
+# Display the confusion matrix
+print(confusion_matrix(y_test, y_pred))
 
-new_article_vectorized = vectorizer.transform([new_article])
 
-prediction = model.predict(new_article_vectorized)
+# Save the model
+dump(model, 'model.joblib')
 
-if prediction[0] == 1:
-    print("Fake news")
-else:
-    print("True news")
+# Save the vectorizer
+dump(vectorizer, 'vectorizer.joblib')
