@@ -8,7 +8,7 @@ model = load('model_logistic.joblib')
 vectorizer = load('vectorizer.joblib')
 
 new_article = '''
-The United Nations has issued a call for urgent humanitarian aid to Afghanistan as the country grapples with a worsening crisis. The withdrawal of international forces and the Taliban's takeover have led to widespread displacement, food shortages, and economic collapse. The UN warns that millions of Afghans are at risk of famine and disease without immediate assistance. International donors are urged to provide emergency funding to address the growing humanitarian needs in Afghanistan.
+A secret potion discovered in an ancient Egyptian tomb is said to grant immortality. Researchers who decoded the hieroglyphics on the tomb claim the potion can stop the aging process and heal all diseases, making it the ultimate elixir of life.
 '''
 new_article = clean_text(new_article)
 

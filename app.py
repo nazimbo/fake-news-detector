@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from joblib import load
 from data_functions import clean_text
+from flask_cors import CORS
 
 # Initialize the Flask application
 app = Flask(__name__)
+CORS(app)
 
 # Load the model and the vectorizer
 model = load('model_logistic.joblib')
