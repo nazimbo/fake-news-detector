@@ -16,7 +16,9 @@ vectorizer = load('vectorizer.joblib')
 def predict():
     # Get the JSON data from the request
     data = request.get_json(force=True)
+    print(data)
     article = data.get('article', '')
+    print(article)
 
     # Clean and vectorize the article
     cleaned_article = clean_text(article)
