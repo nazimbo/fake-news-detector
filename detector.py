@@ -2,13 +2,13 @@ from joblib import load
 from data_functions import *
 
 # Load the model
-model = load('model_bayes.joblib')
+model = load('model_logistic.joblib')
 
 # Load the vectorizer
 vectorizer = load('vectorizer.joblib')
 
 new_article = '''
-In a groundbreaking discovery, a team of scientists has confirmed that the lost city of Atlantis has been found off the coast of Florida. Advanced sonar imaging has revealed the ruins of a vast underwater city, believed to be Atlantis.
+A secret potion discovered in an ancient Egyptian tomb is said to grant immortality. Researchers who decoded the hieroglyphics on the tomb claim the potion can stop the aging process and heal all diseases, making it the ultimate elixir of life.
 '''
 new_article = clean_text(new_article)
 
