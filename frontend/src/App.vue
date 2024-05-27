@@ -1,29 +1,51 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+import axios from 'axios';
+
+const news = ref('');
+
+function checkNews() {
+  // Transformation de la valeur de news en JSON avec la clé article
+  const newsJson = { article: news.value };
+  
+  console.log(newsJson); // Afficher le JSON dans la console
+  
+  axios.post('http://127.0.0.1:5000/predict', newsJson)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1>Fake news detector</h1>
+    <div>
+      <label for="newsText">Enter the news text to check:</label><br />
+      <span>
+        <textarea id="newsText" v-model="news" placeholder="Type the news text here..." class="news-textarea"></textarea>
+      </span>
+      <br />
+      <span>
+        <button @click="checkNews">Check news</button>
+      </span>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.news-textarea {
+  width: 400px;
+  height: 200px;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
