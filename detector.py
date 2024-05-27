@@ -8,7 +8,7 @@ model = load('model_logistic.joblib')
 vectorizer = load('vectorizer.joblib')
 
 new_article = '''
-A secret potion discovered in an ancient Egyptian tomb is said to grant immortality. Researchers who decoded the hieroglyphics on the tomb claim the potion can stop the aging process and heal all diseases, making it the ultimate elixir of life.
+The U.S. Centers for Disease Control and Prevention (CDC) said on Monday it had seen a higher-than-expected number of cases of heart inflammation among young people, who received an mRNA COVID-19 vaccine, and had requested that healthcare providers be on alert for cases of myocarditis.
 '''
 new_article = clean_text(new_article)
 
