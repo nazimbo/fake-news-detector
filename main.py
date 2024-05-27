@@ -1,3 +1,4 @@
+from sklearn.naive_bayes import MultinomialNB
 from joblib import dump
 from data_functions import *
 import pandas as pd
@@ -7,6 +8,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
+# PART 1 - DATA PREPARATION (Comment out after the first run)
 # fake_news = pd.read_csv("dataset/fake.csv")
 # true_news = pd.read_csv("dataset/true.csv")
 
@@ -23,8 +25,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 # # Save the cleaned dataset
 # dataset.to_csv("dataset/cleaned_dataset.csv", index=False)
 
-# PART 2
 
+# PART 2 - MODEL TRAINING
 # Load the cleaned dataset
 dataset = pd.read_csv("dataset/cleaned_dataset.csv")
 
@@ -33,7 +35,7 @@ x, y = dataset["text"], dataset["label"]
 
 # Split the dataset into training and testing sets (80% training, 20% (0.2) testing)
 x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.2)
+    x, y, test_size=0.1)
 
 # Initialize the TfidfVectorizer
 vectorizer = TfidfVectorizer()
@@ -42,8 +44,22 @@ vectorizer = TfidfVectorizer()
 x_train_vectorized = vectorizer.fit_transform(x_train)
 x_test_vectorized = vectorizer.transform(x_test)
 
-# Initialize the Logistic Regression model
-model = LogisticRegression()
+# Initialize the Logistic Regression model (UNCOMMENT TO USE)
+# model = LogisticRegression()
+
+# Initialize the Naive Bayes model (UNCOMMENT TO USE)
+model = MultinomialNB()
+
+# Optional: Set the hyperparameters (UNCOMMENT TO USE)
+# model = LogisticRegression(max_iter=1000)
+# param_grid = {
+#     'C': [0.01, 0.1, 1, 10],
+#     'penalty': ['l1', 'l2'],
+#     'solver': ['liblinear']
+# }
+# grid_search = GridSearchCV(model, param_grid, cv=5, scoring='accuracy')
+# grid_search.fit(x_train_vectorized, y_train)
+# model = grid_search.best_estimator_
 
 # Train the model
 model.fit(x_train_vectorized, y_train)
@@ -63,7 +79,7 @@ print(confusion_matrix(y_test, y_pred))
 
 
 # Save the model
-dump(model, 'model.joblib')
+dump(model, 'model_bayes.joblib')
 
 # Save the vectorizer
 dump(vectorizer, 'vectorizer.joblib')

@@ -2,13 +2,13 @@ from joblib import load
 from data_functions import *
 
 # Load the model
-model = load('model.joblib')
+model = load('model_bayes.joblib')
 
 # Load the vectorizer
 vectorizer = load('vectorizer.joblib')
 
 new_article = '''
-
+Earth is flat. The sun revolves around the Earth. Vaccines cause autism. The moon landing was faked. 9/11 was an inside job.
 '''
 new_article = clean_text(new_article)
 
