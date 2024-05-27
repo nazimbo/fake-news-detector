@@ -8,7 +8,7 @@ model = load('model_bayes.joblib')
 vectorizer = load('vectorizer.joblib')
 
 new_article = '''
-Earth is flat. The sun revolves around the Earth. Vaccines cause autism. The moon landing was faked. 9/11 was an inside job.
+In a groundbreaking discovery, a team of scientists has confirmed that the lost city of Atlantis has been found off the coast of Florida. Advanced sonar imaging has revealed the ruins of a vast underwater city, believed to be Atlantis.
 '''
 new_article = clean_text(new_article)
 

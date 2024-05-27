@@ -35,7 +35,7 @@ x, y = dataset["text"], dataset["label"]
 
 # Split the dataset into training and testing sets (80% training, 20% (0.2) testing)
 x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.1)
+    x, y, test_size=0.2)
 
 # Initialize the TfidfVectorizer
 vectorizer = TfidfVectorizer()
@@ -45,10 +45,10 @@ x_train_vectorized = vectorizer.fit_transform(x_train)
 x_test_vectorized = vectorizer.transform(x_test)
 
 # Initialize the Logistic Regression model (UNCOMMENT TO USE)
-# model = LogisticRegression()
+model = LogisticRegression()
 
 # Initialize the Naive Bayes model (UNCOMMENT TO USE)
-model = MultinomialNB()
+# model = MultinomialNB()
 
 # Optional: Set the hyperparameters (UNCOMMENT TO USE)
 # model = LogisticRegression(max_iter=1000)
@@ -79,7 +79,7 @@ print(confusion_matrix(y_test, y_pred))
 
 
 # Save the model
-dump(model, 'model_bayes.joblib')
+dump(model, 'model_logistic.joblib')
 
 # Save the vectorizer
 dump(vectorizer, 'vectorizer.joblib')
