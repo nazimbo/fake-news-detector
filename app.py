@@ -6,7 +6,7 @@ from data_functions import clean_text
 app = Flask(__name__)
 
 # Load the model and the vectorizer
-model = load('model_bayes.joblib')
+model = load('model_logistic.joblib')
 vectorizer = load('vectorizer.joblib')
 
 

@@ -8,7 +8,7 @@ model = load('model_logistic.joblib')
 vectorizer = load('vectorizer.joblib')
 
 new_article = '''
-The U.S. Centers for Disease Control and Prevention (CDC) said on Monday it had seen a higher-than-expected number of cases of heart inflammation among young people, who received an mRNA COVID-19 vaccine, and had requested that healthcare providers be on alert for cases of myocarditis.
+The United Nations has issued a call for urgent humanitarian aid to Afghanistan as the country grapples with a worsening crisis. The withdrawal of international forces and the Taliban's takeover have led to widespread displacement, food shortages, and economic collapse. The UN warns that millions of Afghans are at risk of famine and disease without immediate assistance. International donors are urged to provide emergency funding to address the growing humanitarian needs in Afghanistan.
 '''
 new_article = clean_text(new_article)
 
