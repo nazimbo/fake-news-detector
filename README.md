@@ -47,5 +47,9 @@ We will use the `LogisticRegression` class from the `sklearn` library to train t
 
 Work in progress... Next steps will include:
 
-- Using different models
-- Saving the trained model to a file and using it to classify new articles
+- Using different models (done)
+- Saving the trained model to a file and using it to classify new articles (done)
+
+## Step 6: Model Evaluation
+
+We will evaluate the model using the testing data. We will use the `accuracy_score` function from the `sklearn` library to calculate the accuracy of the model on the testing data. The accuracy is the proportion of correctly classified articles. We will also use the `classification_report` function to get more detailed metrics such as precision, recall, and F1-score. These metrics give us a better understanding of how well the model is performing.
