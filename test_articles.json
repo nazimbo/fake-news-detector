@@ -1,0 +1,104 @@
+{
+    "articles": [
+        {
+            "source": "The Associated Press",
+            "text": "Afghanistan's Taliban rulers refused to allow dozens of women to board several flights, including some overseas, because they were traveling without a male guardian, two Afghan airline officials said Saturday.",
+            "label": "true"
+        },
+        {
+            "source": "Reuters",
+            "text": "The U.S. Centers for Disease Control and Prevention (CDC) said on Monday it had seen a higher-than-expected number of cases of heart inflammation among young people, who received an mRNA COVID-19 vaccine, and had requested that healthcare providers be on alert for cases of myocarditis.",
+            "label": "true"
+        },
+        {
+            "source": "BBC News",
+            "text": "The United Nations has issued a call for urgent humanitarian aid to Afghanistan as the country grapples with a worsening crisis. The withdrawal of international forces and the Taliban's takeover have led to widespread displacement, food shortages, and economic collapse. The UN warns that millions of Afghans are at risk of famine and disease without immediate assistance. International donors are urged to provide emergency funding to address the growing humanitarian needs in Afghanistan.",
+            "label": "true"
+        },
+        {
+            "source": "Unknown",
+            "text": "Earth is flat. The sun revolves around the Earth. Vaccines cause autism. The moon landing was faked. 9/11 was an inside job.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "In a groundbreaking discovery, a team of scientists has confirmed that the lost city of Atlantis has been found off the coast of Florida. Advanced sonar imaging has revealed the ruins of a vast underwater city, believed to be Atlantis.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "A new study claims that eating chocolate daily can cure cancer. Researchers found that compounds in chocolate target and eliminate cancer cells without harming healthy cells, making it a miracle food.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "Aliens have landed on Earth and are living among us in secret, according to a leaked government document. The document claims that extraterrestrial beings have been in contact with world leaders for decades.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "A revolutionary new technology has been developed that allows humans to breathe underwater without any equipment. The invention, called 'gill implants,' enables people to extract oxygen directly from water, making scuba gear obsolete.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "A secret potion discovered in an ancient Egyptian tomb is said to grant immortality. Researchers who decoded the hieroglyphics on the tomb claim the potion can stop the aging process and heal all diseases, making it the ultimate elixir of life.",
+            "label": "fake"
+        },
+        {
+            "source": "FactCheck.org",
+            "text": "Antarctica is losing ice mass to the ocean, contributing to global sea level rise. But a popular video misrepresented work focused on Antarctic ice shelves — which float in the sea at the edges of the continent — to incorrectly suggest that 'it is unclear if Antarctica is losing any ice on balance.'",
+            "label": "true"
+        },
+        {
+            "source": "MIT Technology Review",
+            "text": "Apple will start shipping its first mixed-reality headset, the Vision Pro, this year. Its killer feature is the highest-resolution display ever made for such a device. Will there be a killer app? It’s early, but the world’s most valuable company has made a bold bet that the answer is yes.",
+            "label": "true"
+        },
+        {
+            "source": "Good News Network",
+            "text": "A New Zealand designer has created an ingenious skylight with solar energy that desalinates water for drinking. This breakthrough could provide fresh water in remote areas where conventional methods are not feasible.",
+            "label": "true"
+        },
+        {
+            "source": "New York Times",
+            "text": "The mayor of a small town in Maine was caught embezzling funds intended for community development projects. Authorities say the misappropriated money amounts to over $1 million.",
+            "label": "true"
+        },
+        {
+            "source": "CNN",
+            "text": "Scientists have developed a new vaccine that shows 90% efficacy in preventing Alzheimer's disease. This breakthrough could revolutionize the treatment of neurodegenerative diseases.",
+            "label": "true"
+        },
+        {
+            "source": "The Guardian",
+            "text": "Climate change is causing more frequent and severe weather events around the globe, scientists warn. The latest data shows an increase in heatwaves, floods, and hurricanes.",
+            "label": "true"
+        },
+        {
+            "source": "Unknown",
+            "text": "A new device claims to generate electricity from human body heat. The device, which can be worn as a bracelet, is said to power small electronics like smartphones and watches.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "A popular social media post claims that drinking a mixture of baking soda and lemon juice can cure cancer. Health experts have debunked this claim, stating there is no scientific evidence to support it.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "An article circulating online suggests that the government has been secretly controlling the weather for decades using a technology called HAARP. Experts have repeatedly dismissed these theories as unfounded.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "A viral post on social media claims that eating garlic can prevent COVID-19. The World Health Organization has stated that while garlic has some antimicrobial properties, there is no evidence it can protect against the coronavirus.",
+            "label": "fake"
+        },
+        {
+            "source": "Unknown",
+            "text": "A video spreading online alleges that NASA has confirmed the existence of a 'second sun' in our solar system. NASA has made no such announcement, and the video is a hoax.",
+            "label": "fake"
+        }
+    ]
+}

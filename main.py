@@ -8,24 +8,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
-# PART 1 - DATA PREPARATION (Comment out after the first run)
-# fake_news = pd.read_csv("dataset/fake.csv")
-# true_news = pd.read_csv("dataset/true.csv")
-
-# dataset = prepare_data(fake_news, true_news)
-
-# # Apply the clean_text function to each element in the text column
-# dataset["text"] = dataset["text"].apply(lambda x: clean_text(x))
-
-# print(dataset.head(20))
-
-# # remove the rows with empty text
-# dataset = dataset[dataset["text"] != ""]
-
-# # Save the cleaned dataset
-# dataset.to_csv("dataset/cleaned_dataset.csv", index=False)
-
-
 # PART 2 - MODEL TRAINING
 # Load the cleaned dataset
 dataset = pd.read_csv("dataset/cleaned_dataset.csv")
@@ -45,21 +27,7 @@ x_train_vectorized = vectorizer.fit_transform(x_train)
 x_test_vectorized = vectorizer.transform(x_test)
 
 # Initialize the Logistic Regression model (UNCOMMENT TO USE)
-model = LogisticRegression()
-
-# Initialize the Naive Bayes model (UNCOMMENT TO USE)
-# model = MultinomialNB()
-
-# Optional: Set the hyperparameters (UNCOMMENT TO USE)
-# model = LogisticRegression(max_iter=1000)
-# param_grid = {
-#     'C': [0.01, 0.1, 1, 10],
-#     'penalty': ['l1', 'l2'],
-#     'solver': ['liblinear']
-# }
-# grid_search = GridSearchCV(model, param_grid, cv=5, scoring='accuracy')
-# grid_search.fit(x_train_vectorized, y_train)
-# model = grid_search.best_estimator_
+model = LogisticRegression(max_iter=1000, random_state=42)
 
 # Train the model
 model.fit(x_train_vectorized, y_train)
