@@ -79,3 +79,4 @@ pids
 *.pid.lock
 
 notes.txt
+*.joblib
