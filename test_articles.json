@@ -52,22 +52,47 @@
     },
     {
       "source": "Unknown",
-      "text": "A popular social media post claims that drinking a mixture of baking soda and lemon juice can cure cancer. Health experts have debunked this claim, stating there is no scientific evidence to support it.",
+      "text": "A man in India claims to have not eaten food or drunk water for 70 years. Medical experts are skeptical, stating that this is biologically impossible.",
       "label": "fake"
     },
     {
       "source": "Unknown",
-      "text": "An article circulating online suggests that the government has been secretly controlling the weather for decades using a technology called HAARP. Experts have repeatedly dismissed these theories as unfounded.",
+      "text": "A new social media trend suggests that staring at the sun can improve eyesight. Ophthalmologists warn that this practice can cause permanent eye damage.",
       "label": "fake"
     },
     {
       "source": "Unknown",
-      "text": "A viral post on social media claims that eating garlic can prevent COVID-19. The World Health Organization has stated that while garlic has some antimicrobial properties, there is no evidence it can protect against the coronavirus.",
+      "text": "A viral conspiracy theory claims that 5G technology is responsible for the spread of COVID-19. Scientists and health experts have debunked this claim, emphasizing that viruses cannot travel on radio waves.",
       "label": "fake"
     },
     {
       "source": "Unknown",
-      "text": "A video spreading online alleges that NASA has confirmed the existence of a 'second sun' in our solar system. NASA has made no such announcement, and the video is a hoax.",
+      "text": "A video circulating online shows a 'time traveler' from the future providing evidence of advanced technology. Experts believe the video is a hoax created using special effects.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A new report suggests that drinking coffee can cure all diseases. This miraculous discovery has led to a surge in coffee sales worldwide.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A secret underground city has been found beneath the ice in Antarctica. Researchers claim it could be the remains of an ancient civilization.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A newly discovered plant species is said to have the ability to cure all forms of cancer. Scientists are racing to study this miraculous plant.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A team of archaeologists has discovered a spaceship buried under the Great Pyramid of Giza. They believe it belonged to an ancient extraterrestrial civilization.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "An article claims that a new pill can instantly give you photographic memory. The pill, created by a secretive biotech company, is not yet available to the public.",
       "label": "fake"
     },
     {
@@ -94,26 +119,6 @@
       "source": "The Washington Post",
       "text": "A new study has found that regular exercise can significantly reduce the risk of heart disease. Researchers recommend at least 30 minutes of moderate exercise five times a week.",
       "label": "true"
-    },
-    {
-      "source": "Unknown",
-      "text": "A man in India claims to have not eaten food or drunk water for 70 years. Medical experts are skeptical, stating that this is biologically impossible.",
-      "label": "fake"
-    },
-    {
-      "source": "Unknown",
-      "text": "A new social media trend suggests that staring at the sun can improve eyesight. Ophthalmologists warn that this practice can cause permanent eye damage.",
-      "label": "fake"
-    },
-    {
-      "source": "Unknown",
-      "text": "A viral conspiracy theory claims that 5G technology is responsible for the spread of COVID-19. Scientists and health experts have debunked this claim, emphasizing that viruses cannot travel on radio waves.",
-      "label": "fake"
-    },
-    {
-      "source": "Unknown",
-      "text": "A video circulating online shows a 'time traveler' from the future providing evidence of advanced technology. Experts believe the video is a hoax created using special effects.",
-      "label": "fake"
     }
   ]
 }

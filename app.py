@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the model and the vectorizer
-model = load('model_logistic.joblib')
+model = load('models/model_logistic_regression.joblib')
 vectorizer = load('vectorizer.joblib')
 
 
