@@ -10,10 +10,10 @@ from termcolor import colored
 init()
 
 # Define the directory containing the models
-model_directory = 'models/'
+model_directory = 'models_hyperparams/'
 
 # Load the vectorizer
-vectorizer = load('vectorizer.joblib')
+vectorizer = load(f'{model_directory}/vectorizer.joblib')
 
 # Load the test articles from the JSON file
 with open('test_articles.json', 'r') as file:
@@ -32,7 +32,7 @@ vectorized_texts = vectorizer.transform(cleaned_texts)
 
 # List all model files in the model directory
 model_filenames = [f for f in os.listdir(
-    model_directory) if f.endswith('.joblib')]
+    model_directory) if f.endswith('.joblib') and f != 'vectorizer.joblib']
 
 # Evaluate each model
 for model_filename in model_filenames:

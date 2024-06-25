@@ -35,7 +35,7 @@ models = {
 }
 
 # Save the vectorizer
-dump(vectorizer, 'vectorizer.joblib')
+dump(vectorizer, 'models/vectorizer.joblib')
 
 # Train and save each model
 for model_name, model in models.items():

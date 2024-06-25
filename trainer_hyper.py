@@ -37,7 +37,7 @@ models = {
 }
 
 # Save the vectorizer
-dump(vectorizer, 'vectorizer.joblib')
+dump(vectorizer, 'models_hyperparams/vectorizer.joblib')
 
 # Train, tune hyperparameters, and save each model
 for model_name, (model, param_grid) in models.items():
@@ -60,4 +60,4 @@ for model_name, (model, param_grid) in models.items():
 
     # Save the best model
     dump(best_model,
-         f'models/best_model_{model_name.replace(" ", "_").lower()}.joblib')
+         f'models_hyperparams/best_model_{model_name.replace(" ", "_").lower()}.joblib')
