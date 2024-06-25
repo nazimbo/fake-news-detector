@@ -1,5 +1,7 @@
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import MultinomialNB
 from joblib import dump
+from sklearn.svm import SVC
 from data_functions import *
 import pandas as pd
 from sklearn.model_selection import GridSearchCV, train_test_split
@@ -26,28 +28,25 @@ vectorizer = TfidfVectorizer()
 x_train_vectorized = vectorizer.fit_transform(x_train)
 x_test_vectorized = vectorizer.transform(x_test)
 
-# Initialize the Logistic Regression model (UNCOMMENT TO USE)
-model = LogisticRegression(max_iter=1000, random_state=42)
-
-# Train the model
-model.fit(x_train_vectorized, y_train)
-
-# Test the model
-y_pred = model.predict(x_test_vectorized)
-
-# Calculate the accuracy
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Accuracy: {accuracy}")
-
-# Display the classification report
-print(classification_report(y_test, y_pred))
-
-# Display the confusion matrix
-print(confusion_matrix(y_test, y_pred))
-
-
-# Save the model
-dump(model, 'model_logistic.joblib')
+# Define models
+models = {
+    "Logistic Regression": LogisticRegression(max_iter=1000, random_state=42),
+    "Naive Bayes": MultinomialNB(),
+    # "Support Vector Machine": SVC(random_state=42),
+    "Random Forest": RandomForestClassifier(random_state=42)
+}
 
 # Save the vectorizer
 dump(vectorizer, 'vectorizer.joblib')
+
+# Train and save each model
+for model_name, model in models.items():
+    model.fit(x_train_vectorized, y_train)
+    y_pred = model.predict(x_test_vectorized)
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"{model_name} Accuracy: {accuracy}")
+    print(classification_report(y_test, y_pred))
+    print(confusion_matrix(y_test, y_pred))
+
+    # Save the model and vectorizer
+    dump(model, f'models/model_{model_name.replace(" ", "_").lower()}.joblib')
