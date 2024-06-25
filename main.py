@@ -46,5 +46,5 @@ for model_name, model in models.items():
     print(classification_report(y_test, y_pred))
     print(confusion_matrix(y_test, y_pred))
 
-    # Save the model and vectorizer
+    # Save the model
     dump(model, f'models/model_{model_name.replace(" ", "_").lower()}.joblib')

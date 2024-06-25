@@ -16,6 +16,41 @@
       "label": "true"
     },
     {
+      "source": "CNN",
+      "text": "Scientists have discovered a new species of dinosaur in Argentina. The dinosaur, which lived approximately 70 million years ago, is believed to be one of the largest land animals ever to have existed.",
+      "label": "true"
+    },
+    {
+      "source": "The Guardian",
+      "text": "Climate change is accelerating faster than previously thought, according to a new report by leading scientists. The report warns of increased natural disasters and calls for immediate action to reduce carbon emissions.",
+      "label": "true"
+    },
+    {
+      "source": "The New York Times",
+      "text": "The U.S. economy added 850,000 jobs in June, the highest number in nearly a year, as businesses reopened and consumer demand surged.",
+      "label": "true"
+    },
+    {
+      "source": "Bloomberg",
+      "text": "Electric car manufacturer Tesla announced plans to build a new Gigafactory in Texas, which is expected to create thousands of jobs and significantly increase production capacity.",
+      "label": "true"
+    },
+    {
+      "source": "The Washington Post",
+      "text": "A new study has found that regular exercise can significantly reduce the risk of heart disease. Researchers recommend at least 30 minutes of moderate exercise five times a week.",
+      "label": "true"
+    },
+    {
+      "source": "BBC News",
+      "text": "A monkey that is new to science has been discovered in the remote forests of Myanmar. The Popa langur, named after its home on Mount Popa, is critically endangered with numbers down to about 200 individuals. Langurs are a group of leaf-eating monkeys that are found across south east Asia. The newly described animal is known for its distinctive spectacle-like eye patches and greyish-coloured fur. It is at risk from habitat loss and hunting. Scientists have long suspected there might be a new species in Myanmar, based on DNA extracted from the droppings of wild monkeys, but evidence has been hard to find.",
+      "label": "true"
+    },
+    {
+      "source": "The Wall Street Journal",
+      "text": "The U.S. stock market reached record highs on Monday, fueled by strong corporate earnings and positive economic data.",
+      "label": "true"
+    },
+    {
       "source": "Unknown",
       "text": "Earth is flat. The sun revolves around the Earth. Vaccines cause autism. The moon landing was faked. 9/11 was an inside job.",
       "label": "fake"
@@ -94,31 +129,6 @@
       "source": "Unknown",
       "text": "An article claims that a new pill can instantly give you photographic memory. The pill, created by a secretive biotech company, is not yet available to the public.",
       "label": "fake"
-    },
-    {
-      "source": "CNN",
-      "text": "Scientists have discovered a new species of dinosaur in Argentina. The dinosaur, which lived approximately 70 million years ago, is believed to be one of the largest land animals ever to have existed.",
-      "label": "true"
-    },
-    {
-      "source": "The Guardian",
-      "text": "Climate change is accelerating faster than previously thought, according to a new report by leading scientists. The report warns of increased natural disasters and calls for immediate action to reduce carbon emissions.",
-      "label": "true"
-    },
-    {
-      "source": "The New York Times",
-      "text": "The U.S. economy added 850,000 jobs in June, the highest number in nearly a year, as businesses reopened and consumer demand surged.",
-      "label": "true"
-    },
-    {
-      "source": "Bloomberg",
-      "text": "Electric car manufacturer Tesla announced plans to build a new Gigafactory in Texas, which is expected to create thousands of jobs and significantly increase production capacity.",
-      "label": "true"
-    },
-    {
-      "source": "The Washington Post",
-      "text": "A new study has found that regular exercise can significantly reduce the risk of heart disease. Researchers recommend at least 30 minutes of moderate exercise five times a week.",
-      "label": "true"
     }
   ]
 }
