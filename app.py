@@ -8,8 +8,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the model and the vectorizer
-model = load('models/model_logistic_regression.joblib')
-vectorizer = load('vectorizer.joblib')
+model = load('models/model_naive_bayes.joblib')
+vectorizer = load('models/vectorizer.joblib')
 
 
 @app.route('/predict', methods=['POST'])

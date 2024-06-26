@@ -65,5 +65,4 @@ for model_filename in model_filenames:
         print(Fore.MAGENTA + f"Text: {text}" + Style.RESET_ALL)
         true_label_color = 'green' if true_label == predicted_label else 'red'
         predicted_label_color = 'green' if true_label == predicted_label else 'red'
-        print(f"True Label: {colored(true_label, true_label_color)}, Predicted Label: {
-              colored(predicted_label, predicted_label_color)}\n")
+        print(f"True Label: {colored(true_label, true_label_color)}, Predicted Label: {colored(predicted_label, predicted_label_color)}\n")
