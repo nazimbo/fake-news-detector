@@ -10,7 +10,7 @@ from termcolor import colored
 init()
 
 # Define the directory containing the models
-model_directory = 'models_hyperparams/'
+model_directory = 'models/'
 
 # Load the vectorizer
 vectorizer = load(f'{model_directory}/vectorizer.joblib')
