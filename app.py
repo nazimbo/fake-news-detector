@@ -8,7 +8,6 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the model and the vectorizer
-model = load('models/model_naive_bayes.joblib')
 vectorizer = load('models/vectorizer.joblib')
 
 
@@ -16,10 +15,14 @@ vectorizer = load('models/vectorizer.joblib')
 def predict():
     # Get the JSON data from the request
     data = request.get_json(force=True)
-    print(data)
+    
     article = data.get('article', '')
-    print(article)
-
+    
+    model_name = data.get('model', 'naive_bayes')
+    print(model_name)
+    
+    model = load(f'models/model_{model_name}.joblib')
+    
     # Clean and vectorize the article
     cleaned_article = clean_text(article)
     vectorized_article = vectorizer.transform([cleaned_article])
@@ -29,7 +32,7 @@ def predict():
 
     # Return the result as JSON
     result = 'Fake news' if prediction[0] == 1 else 'True news'
-    return jsonify({'prediction': result})
+    return jsonify({'prediction': result, 'model': model_name.replace("_", " ").title()})
 
 
 if __name__ == '__main__':
