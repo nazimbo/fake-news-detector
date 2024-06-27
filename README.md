@@ -43,13 +43,24 @@ We then apply the same transformation learned from the training data on the test
 
 ## Step 5: Model Training
 
-We will use the `LogisticRegression` class from the `sklearn` library to train the model. We first create an instance of the `LogisticRegression` class and then call the `fit` method on the training data to train the model.
+We will use multiple models to train on the data:
 
-Work in progress... Next steps will include:
+- Logistic Regression
+- Random Forest
+- Naive Bayes
 
-- Using different models (done)
-- Saving the trained model to a file and using it to classify new articles (done)
+We will use the `fit` method to train the model on the training data. This method takes the training data `x_train` and the training labels `y_train` as input. The model will learn the patterns in the training data and use them to make predictions on new data.
+The trained models and the vectorizer are saved using the `joblib` library so they can be used later for making predictions.
 
 ## Step 6: Model Evaluation
 
-We will evaluate the model using the testing data. We will use the `accuracy_score` function from the `sklearn` library to calculate the accuracy of the model on the testing data. The accuracy is the proportion of correctly classified articles. We will also use the `classification_report` function to get more detailed metrics such as precision, recall, and F1-score. These metrics give us a better understanding of how well the model is performing.
+We will evaluate the models using the testing data. We will use the `accuracy_score` function from the `sklearn` library to calculate the accuracy of the model on the testing data. The accuracy is the percentage of correct predictions made by the model. We will also use the `classification_report` function to get a detailed report of the model's performance. This report includes precision, recall, f1-score, and support for each class.
+
+## Step 7: Model Comparison
+
+We have added functionality to compare the performance of different models graphically. This includes plotting accuracy, precision, recall, and F1-score for each model.
+The functions for comparing the models are located in a separate file, `comparison_functions.py`.
+
+## Step 8: Making Predictions
+
+We will use the trained models to make predictions on new data. We will use the `predict` method of the model to make predictions on the new data. The `predict` method takes the new data as input and returns the predicted labels. We will also use the `predict_proba` method to get the probabilities of each class for each prediction.

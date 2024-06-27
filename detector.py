@@ -31,8 +31,8 @@ cleaned_texts = [clean_text(text) for text in texts]
 vectorized_texts = vectorizer.transform(cleaned_texts)
 
 # List all model files in the model directory
-model_filenames = [f for f in os.listdir(
-    model_directory) if f.endswith('.joblib') and f != 'vectorizer.joblib']
+model_filenames = [f for f in os.listdir(model_directory) if f.endswith(
+    '.joblib') and f != 'vectorizer.joblib']
 
 # Evaluate each model
 for model_filename in model_filenames:
@@ -42,6 +42,12 @@ for model_filename in model_filenames:
 
     # Predict using the model
     predicted_labels = model.predict(vectorized_texts)
+
+    # Check if the model supports predict_proba
+    if hasattr(model, "predict_proba"):
+        predicted_probas = model.predict_proba(vectorized_texts)
+    else:
+        predicted_probas = None
 
     # Convert predicted labels from numeric to string for display
     predicted_labels_str = ['fake' if label ==
@@ -60,9 +66,18 @@ for model_filename in model_filenames:
     print(Fore.CYAN + str(confusion_matrix(true_labels,
           predicted_labels)) + Style.RESET_ALL)
 
-    # Print the predictions alongside the true labels and texts
-    for text, true_label, predicted_label in zip(texts, true_labels_str, predicted_labels_str):
+    # Print the predictions alongside the true labels, predicted labels, and texts
+    for i, (text, true_label, predicted_label) in enumerate(zip(texts, true_labels_str, predicted_labels_str)):
         print(Fore.MAGENTA + f"Text: {text}" + Style.RESET_ALL)
         true_label_color = 'green' if true_label == predicted_label else 'red'
         predicted_label_color = 'green' if true_label == predicted_label else 'red'
-        print(f"True Label: {colored(true_label, true_label_color)}, Predicted Label: {colored(predicted_label, predicted_label_color)}\n")
+        print(f"True Label: {colored(true_label, true_label_color)}, Predicted Label: {
+              colored(predicted_label, predicted_label_color)}")
+
+        if predicted_probas is not None:
+            fake_prob = predicted_probas[i][1]  # Probability for 'fake'
+            true_prob = predicted_probas[i][0]  # Probability for 'true'
+            print(
+                f"Predicted Probabilities -> True: {true_prob:.2f}, Fake: {fake_prob:.2f}")
+
+        print()  # New line for better readability
