@@ -7,6 +7,7 @@ const resultValeur = ref("");
 const resultClass = ref("");
 const typemodel = ref("naive_bayes");
 const modelName = ref("");
+const probability = ref(0);
 
 function checkNews() {
   const newsJson = { article: news.value, model: typemodel.value };
@@ -18,13 +19,17 @@ function checkNews() {
     .then((response) => {
       resultValeur.value = response.data.prediction;
       modelName.value = response.data.model;
+      const probabilities = response.data.probabilities;
       if (resultValeur.value === "Fake news") {
         resultClass.value = "fakeNews";
+        probability.value = probabilities.fake;
       } else {
         resultClass.value = "trueNews";
+        probability.value = probabilities.true;
       }
       console.log(resultValeur.value);
       console.log(response.data.model);
+      console.log(probability.value);
     })
     .catch((error) => {
       console.error(error);
@@ -46,19 +51,14 @@ function checkNews() {
       </div>
       <div class="mb-4">
         <label for="newsText" class="block text-gray-700 font-semibold mb-2">Enter the news text to check:</label>
-        <textarea
-          id="newsText"
-          v-model="news"
-          placeholder="Type the news text here..."
-          class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 h-40"
-        ></textarea>
+        <textarea id="newsText" v-model="news" placeholder="Type the news text here..." class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 h-40"></textarea>
       </div>
       <div class="flex justify-center">
         <button @click="checkNews" class="bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-indigo-600 transition duration-200">Check News</button>
       </div>
       <div v-if="resultValeur" class="mt-6 text-center">
         <p class="text-xl font-semibold">
-          Le modèle {{ modelName }} a estimé que c'était une <span :class="resultClass">{{ resultValeur }}</span>
+          Le modèle {{ modelName }} a estimé que c'était une <span :class="resultClass">{{ resultValeur }}</span> avec une probabilité de <span :class="resultClass">{{ (probability * 100).toFixed(2) }}%</span>
         </p>
       </div>
     </div>
