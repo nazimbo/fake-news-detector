@@ -1,5 +1,4 @@
 from joblib import dump
-from data_functions import *
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -7,7 +6,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-
+import os
+from comparison_functions import plot_roc_curve, plot_confusion_matrix, plot_classification_report
 
 # PART 2 - MODEL TRAINING
 # Load the cleaned dataset
@@ -18,7 +18,7 @@ x, y = dataset["text"], dataset["label"]
 
 # Split the dataset into training and testing sets (80% training, 20% (0.2) testing)
 x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.2)
+    x, y, test_size=0.2, random_state=42)
 
 # Initialize the TfidfVectorizer
 vectorizer = TfidfVectorizer()
@@ -35,6 +35,7 @@ models = {
 }
 
 # Save the vectorizer
+os.makedirs('models', exist_ok=True)
 dump(vectorizer, 'models/vectorizer.joblib')
 
 # Train and save each model
@@ -48,3 +49,13 @@ for model_name, model in models.items():
 
     # Save the model
     dump(model, f'models/model_{model_name.replace(" ", "_").lower()}.joblib')
+
+# Create directory for graphics
+os.makedirs('graphics', exist_ok=True)
+
+# Generate comparison graphics
+plot_roc_curve(models, x_test_vectorized, y_test, 'graphics/roc_curve.png')
+plot_confusion_matrix(models, x_test_vectorized, y_test,
+                      'graphics/confusion_matrix.png')
+plot_classification_report(models, x_test_vectorized,
+                           y_test, 'graphics/classification_report.png')
