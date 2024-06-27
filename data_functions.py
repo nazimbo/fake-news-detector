@@ -1,3 +1,4 @@
+import string
 import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -36,11 +37,13 @@ def clean_text(text):
     # Converting the text to lowercase
     text = text.lower()
 
-    # Removing URLs
-    text = re.sub(r'http\S+', '', text)
-
-    # Removing non-alphabetic characters
-    text = re.sub(r'[^a-zA-Z]', ' ', text)
+    text = re.sub('\[.*?\]', '', text)
+    text = re.sub("\\W", " ", text)
+    text = re.sub('https?://\S+|www\.\S+', '', text)
+    text = re.sub('<.*?>+', '', text)
+    text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
+    text = re.sub('\n', '', text)
+    text = re.sub('\w*\d\w*', '', text)
 
     # Tokenization (splitting the text into words)
     text = text.split()
