@@ -8,32 +8,43 @@ const resultClass = ref("");
 const typemodel = ref("naive_bayes");
 const modelName = ref("");
 const probability = ref(0);
+const isLoading = ref(false);
+const errorMessage = ref("");
 
-function checkNews() {
+async function checkNews() {
+  if (!news.value.trim()) {
+    errorMessage.value = "Please enter the news text.";
+    return;
+  }
+
   const newsJson = { article: news.value, model: typemodel.value };
 
   console.log(newsJson); // Afficher le JSON dans la console
 
-  axios
-    .post("http://127.0.0.1:5000/predict", newsJson)
-    .then((response) => {
-      resultValeur.value = response.data.prediction;
-      modelName.value = response.data.model;
-      const probabilities = response.data.probabilities;
-      if (resultValeur.value === "Fake news") {
-        resultClass.value = "fakeNews";
-        probability.value = probabilities.fake;
-      } else {
-        resultClass.value = "trueNews";
-        probability.value = probabilities.true;
-      }
-      console.log(resultValeur.value);
-      console.log(response.data.model);
-      console.log(probability.value);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  isLoading.value = true;
+  errorMessage.value = "";
+
+  try {
+    const response = await axios.post("http://127.0.0.1:5000/predict", newsJson);
+    resultValeur.value = response.data.prediction;
+    modelName.value = response.data.model;
+    const probabilities = response.data.probabilities;
+    if (resultValeur.value === "Fake news") {
+      resultClass.value = "fakeNews";
+      probability.value = probabilities.fake;
+    } else {
+      resultClass.value = "trueNews";
+      probability.value = probabilities.true;
+    }
+    console.log(resultValeur.value);
+    console.log(response.data.model);
+    console.log(probability.value);
+  } catch (error) {
+    console.error(error);
+    errorMessage.value = "An error occurred while fetching the prediction. Please try again.";
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 
@@ -54,7 +65,13 @@ function checkNews() {
         <textarea id="newsText" v-model="news" placeholder="Type the news text here..." class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 h-40"></textarea>
       </div>
       <div class="flex justify-center">
-        <button @click="checkNews" class="bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-indigo-600 transition duration-200">Check News</button>
+        <button @click="checkNews" class="bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-indigo-600 transition duration-200" :disabled="isLoading">
+          <span v-if="isLoading">Checking...</span>
+          <span v-else>Check News</span>
+        </button>
+      </div>
+      <div v-if="errorMessage" class="mt-4 text-center text-red-600">
+        {{ errorMessage }}
       </div>
       <div v-if="resultValeur" class="mt-6 text-center">
         <p class="text-xl font-semibold">

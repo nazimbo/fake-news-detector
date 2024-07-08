@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 # Initialize the Flask application
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Allow CORS for all routes
 
 # Load the model and the vectorizer
 vectorizer = load('models/vectorizer.joblib')
