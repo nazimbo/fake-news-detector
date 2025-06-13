@@ -6,6 +6,7 @@
 # Dossiers node_modules
 /node_modules/
 node_modules
+**/node_modules/
 
 # Dossier dist (distributions compilées)
 /dist/
@@ -30,7 +31,8 @@ yarn-error.log*
 venv/
 *.venv
 env/
-*.env
+**/venv/
+backend_env/
 
 # Fichiers de base de données locales
 *.sqlite3
@@ -80,3 +82,8 @@ pids
 
 notes.txt
 *.joblib
+
+# Large datasets and model files
+backend/dataset/
+backend/models/
+backend/models_hyperparams/

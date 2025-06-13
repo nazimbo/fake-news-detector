@@ -2,6 +2,144 @@
 
 This project is a fake news detector that uses a machine learning model to classify news articles as fake or real. The model is trained on a dataset of news articles that are labeled as fake or real.
 
+## Project Structure
+
+```
+fake-news-detector/
+├── backend/                    # Python Flask API and ML models
+│   ├── app.py                 # Main Flask application
+│   ├── detector.py            # Prediction logic
+│   ├── data_functions.py      # Data processing utilities
+│   ├── comparison_functions.py # Model comparison utilities
+│   ├── trainer_main.py        # Model training script
+│   ├── trainer_hyper.py       # Hyperparameter tuning
+│   ├── dataset/               # Training data
+│   ├── models/                # Trained ML models
+│   ├── graphics/              # Performance visualizations
+│   └── requirements.txt       # Python dependencies
+├── frontend/                   # Vue.js web application
+│   ├── src/                   # Source code
+│   ├── public/                # Static assets
+│   └── package.json           # Node.js dependencies
+└── README.md                  # This file
+```
+
+## Setup and Installation
+
+### Prerequisites
+
+- Python 3.8 or higher (tested with 3.13.4)
+- Node.js 16 or higher (tested with 24.2.0)
+- npm or yarn
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   ```
+
+3. Activate the virtual environment:
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. Install required NLTK data:
+   ```bash
+   python install_nltk.py
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install Node.js dependencies:
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+
+### Start the Backend API
+
+1. Navigate to the backend directory and activate your virtual environment:
+   ```bash
+   cd backend
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. Run the Flask application:
+   ```bash
+   python app.py
+   ```
+
+   The backend API will be available at `http://127.0.0.1:5000`
+
+### Start the Frontend
+
+1. In a new terminal, navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+   The frontend will be available at `http://localhost:5173`
+
+### Using the Application
+
+1. Open your web browser and go to `http://localhost:5173`
+2. Select a machine learning model (Naive Bayes, Logistic Regression, or Random Forest)
+3. Enter the news text you want to analyze
+4. Click "Check News" to get the prediction
+5. View the result showing whether the news is likely fake or real, along with confidence probability
+
+## Model Training (Optional)
+
+If you want to retrain the models:
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Run the training script:
+   ```bash
+   python trainer_main.py
+   ```
+
+3. For hyperparameter tuning:
+   ```bash
+   python trainer_hyper.py
+   ```
+
+## API Endpoints
+
+- `POST /predict` - Predict if news is fake or real
+  - Request body: `{"article": "news text", "model": "naive_bayes|logistic_regression|random_forest"}`
+  - Response: `{"prediction": "Fake news|Real news", "model": "model_name", "probabilities": {"fake": 0.xx, "true": 0.xx}}`
+
 ## Dataset
 
 The dataset used to train the model is from Kaggle (https://www.kaggle.com/code/therealsampat/fake-news-detection/input). The dataset contains two CSV files, one with fake news articles and one with real news articles.

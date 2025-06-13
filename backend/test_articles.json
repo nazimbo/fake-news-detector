@@ -1,0 +1,134 @@
+{
+  "articles": [
+    {
+      "source": "The Associated Press",
+      "text": "Afghanistan's Taliban rulers refused to allow dozens of women to board several flights, including some overseas, because they were traveling without a male guardian, two Afghan airline officials said Saturday.",
+      "label": "true"
+    },
+    {
+      "source": "Reuters",
+      "text": "The U.S. Centers for Disease Control and Prevention (CDC) said on Monday it had seen a higher-than-expected number of cases of heart inflammation among young people, who received an mRNA COVID-19 vaccine, and had requested that healthcare providers be on alert for cases of myocarditis.",
+      "label": "true"
+    },
+    {
+      "source": "BBC News",
+      "text": "The United Nations has issued a call for urgent humanitarian aid to Afghanistan as the country grapples with a worsening crisis. The withdrawal of international forces and the Taliban's takeover have led to widespread displacement, food shortages, and economic collapse. The UN warns that millions of Afghans are at risk of famine and disease without immediate assistance. International donors are urged to provide emergency funding to address the growing humanitarian needs in Afghanistan.",
+      "label": "true"
+    },
+    {
+      "source": "CNN",
+      "text": "Scientists have discovered a new species of dinosaur in Argentina. The dinosaur, which lived approximately 70 million years ago, is believed to be one of the largest land animals ever to have existed.",
+      "label": "true"
+    },
+    {
+      "source": "The Guardian",
+      "text": "Climate change is accelerating faster than previously thought, according to a new report by leading scientists. The report warns of increased natural disasters and calls for immediate action to reduce carbon emissions.",
+      "label": "true"
+    },
+    {
+      "source": "The New York Times",
+      "text": "The U.S. economy added 850,000 jobs in June, the highest number in nearly a year, as businesses reopened and consumer demand surged.",
+      "label": "true"
+    },
+    {
+      "source": "Bloomberg",
+      "text": "Electric car manufacturer Tesla announced plans to build a new Gigafactory in Texas, which is expected to create thousands of jobs and significantly increase production capacity.",
+      "label": "true"
+    },
+    {
+      "source": "The Washington Post",
+      "text": "A new study has found that regular exercise can significantly reduce the risk of heart disease. Researchers recommend at least 30 minutes of moderate exercise five times a week.",
+      "label": "true"
+    },
+    {
+      "source": "BBC News",
+      "text": "A monkey that is new to science has been discovered in the remote forests of Myanmar. The Popa langur, named after its home on Mount Popa, is critically endangered with numbers down to about 200 individuals. Langurs are a group of leaf-eating monkeys that are found across south east Asia. The newly described animal is known for its distinctive spectacle-like eye patches and greyish-coloured fur. It is at risk from habitat loss and hunting. Scientists have long suspected there might be a new species in Myanmar, based on DNA extracted from the droppings of wild monkeys, but evidence has been hard to find.",
+      "label": "true"
+    },
+    {
+      "source": "The Wall Street Journal",
+      "text": "The U.S. stock market reached record highs on Monday, fueled by strong corporate earnings and positive economic data.",
+      "label": "true"
+    },
+    {
+      "source": "Unknown",
+      "text": "Earth is flat. The sun revolves around the Earth. Vaccines cause autism. The moon landing was faked. 9/11 was an inside job.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "In a groundbreaking discovery, a team of scientists has confirmed that the lost city of Atlantis has been found off the coast of Florida. Advanced sonar imaging has revealed the ruins of a vast underwater city, believed to be Atlantis.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A new study claims that eating chocolate daily can cure cancer. Researchers found that compounds in chocolate target and eliminate cancer cells without harming healthy cells, making it a miracle food.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "Aliens have landed on Earth and are living among us in secret, according to a leaked government document. The document claims that extraterrestrial beings have been in contact with world leaders for decades.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A revolutionary new technology has been developed that allows humans to breathe underwater without any equipment. The invention, called 'gill implants,' enables people to extract oxygen directly from water, making scuba gear obsolete.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A secret potion discovered in an ancient Egyptian tomb is said to grant immortality. Researchers who decoded the hieroglyphics on the tomb claim the potion can stop the aging process and heal all diseases, making it the ultimate elixir of life.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A new device claims to generate electricity from human body heat. The device, which can be worn as a bracelet, is said to power small electronics like smartphones and watches.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A man in India claims to have not eaten food or drunk water for 70 years. Medical experts are skeptical, stating that this is biologically impossible.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A new social media trend suggests that staring at the sun can improve eyesight. Ophthalmologists warn that this practice can cause permanent eye damage.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A viral conspiracy theory claims that 5G technology is responsible for the spread of COVID-19. Scientists and health experts have debunked this claim, emphasizing that viruses cannot travel on radio waves.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A video circulating online shows a 'time traveler' from the future providing evidence of advanced technology. Experts believe the video is a hoax created using special effects.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A new report suggests that drinking coffee can cure all diseases. This miraculous discovery has led to a surge in coffee sales worldwide.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A secret underground city has been found beneath the ice in Antarctica. Researchers claim it could be the remains of an ancient civilization.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A newly discovered plant species is said to have the ability to cure all forms of cancer. Scientists are racing to study this miraculous plant.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "A team of archaeologists has discovered a spaceship buried under the Great Pyramid of Giza. They believe it belonged to an ancient extraterrestrial civilization.",
+      "label": "fake"
+    },
+    {
+      "source": "Unknown",
+      "text": "An article claims that a new pill can instantly give you photographic memory. The pill, created by a secretive biotech company, is not yet available to the public.",
+      "label": "fake"
+    }
+  ]
+}
