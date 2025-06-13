@@ -4,6 +4,10 @@ from data_functions import clean_text
 from flask_cors import CORS
 import os
 import logging
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -127,4 +131,5 @@ def health_check():
     })
 
 if __name__ == '__main__':
-    app.run(debug=False, host='127.0.0.1', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
