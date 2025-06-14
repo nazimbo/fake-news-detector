@@ -20,7 +20,7 @@ CORS(
         "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "https://your-app-name.vercel.app",  # Add your Vercel URL
+        "https://fake-news-detector-eta.vercel.app",
         "https://*.vercel.app",  # Allow all Vercel preview deployments
     ],
 )
