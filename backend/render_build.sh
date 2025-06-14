@@ -5,7 +5,11 @@ set -o errexit
 pip install -r requirements.txt
 python install_nltk.py
 
-# If models don't exist, you might need to generate them
-if [ ! -d "models" ]; then
-    echo "Models directory not found. Please ensure models are committed to repo."
+# Check if models exist and are accessible
+if [ ! -d "models" ] || [ ! -f "models/vectorizer.joblib" ]; then
+    echo "Models not found. Training new models..."
+    python trainer_main.py
+else
+    echo "Models found, checking integrity..."
+    ls -la models/
 fi

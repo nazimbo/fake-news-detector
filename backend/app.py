@@ -42,9 +42,19 @@ def load_models():
     global models, vectorizer
 
     try:
+        # Check if models directory exists
+        models_dir = "models"
+        if not os.path.exists(models_dir):
+            logger.error(f"Models directory '{models_dir}' does not exist")
+            logger.info(f"Current working directory: {os.getcwd()}")
+            logger.info(f"Directory contents: {os.listdir('.')}")
+            raise FileNotFoundError(f"Models directory not found")
+
         # Load vectorizer
         vectorizer_path = "models/vectorizer.joblib"
         if not os.path.exists(vectorizer_path):
+            logger.error(f"Vectorizer not found at {vectorizer_path}")
+            logger.info(f"Models directory contents: {os.listdir(models_dir)}")
             raise FileNotFoundError(f"Vectorizer not found at {vectorizer_path}")
         vectorizer = load(vectorizer_path)
         logger.info("Vectorizer loaded successfully")
@@ -59,10 +69,17 @@ def load_models():
                 logger.warning(f"Model {model_name} not found at {model_path}")
 
         if not models:
+            logger.error("No models were loaded successfully")
+            logger.info(f"Models directory contents: {os.listdir(models_dir)}")
             raise Exception("No models were loaded successfully")
+
+        logger.info(f"Successfully loaded {len(models)} models: {list(models.keys())}")
 
     except Exception as e:
         logger.error(f"Error loading models: {str(e)}")
+        logger.error(f"Current working directory: {os.getcwd()}")
+        if os.path.exists("models"):
+            logger.error(f"Models directory contents: {os.listdir('models')}")
         raise
 
 
@@ -143,6 +160,9 @@ def predict():
 
     except Exception as e:
         logger.error(f"Error in prediction: {str(e)}")
+        logger.error(f"Error type: {type(e).__name__}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({"error": "Internal server error occurred"}), 500
 
 
