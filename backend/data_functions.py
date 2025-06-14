@@ -19,9 +19,11 @@ def prepare_data(df_fake, df_true):
     df = pd.concat([df_fake, df_true])
 
     # Checking for missing values
-    print(f'''Missing values:
+    print(
+        f"""Missing values:
     {df.isnull().sum()}
-    ''')
+    """
+    )
 
     # Checking the number of fake and true news
     print(f"Fake news: {df['label'].value_counts()[1]}")
@@ -37,13 +39,13 @@ def clean_text(text):
     # Converting the text to lowercase
     text = text.lower()
 
-    text = re.sub('\[.*?\]', '', text)
+    text = re.sub("\[.*?\]", "", text)
     text = re.sub("\\W", " ", text)
-    text = re.sub('https?://\S+|www\.\S+', '', text)
-    text = re.sub('<.*?>+', '', text)
-    text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
-    text = re.sub('\n', '', text)
-    text = re.sub('\w*\d\w*', '', text)
+    text = re.sub("https?://\S+|www\.\S+", "", text)
+    text = re.sub("<.*?>+", "", text)
+    text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
+    text = re.sub("\n", "", text)
+    text = re.sub("\w*\d\w*", "", text)
 
     # Tokenization (splitting the text into words)
     text = text.split()

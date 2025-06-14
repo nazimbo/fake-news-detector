@@ -10,19 +10,18 @@ from termcolor import colored
 init()
 
 # Define the directory containing the models
-model_directory = 'models/'
+model_directory = "models/"
 
 # Load the vectorizer
-vectorizer = load(f'{model_directory}/vectorizer.joblib')
+vectorizer = load(f"{model_directory}/vectorizer.joblib")
 
 # Load the test articles from the JSON file
-with open('test_articles.json', 'r') as file:
+with open("test_articles.json", "r") as file:
     data = json.load(file)
 
 # Extract texts and true labels
 texts = [article["text"] for article in data["articles"]]
-true_labels = [1 if article["label"] ==
-               "fake" else 0 for article in data["articles"]]
+true_labels = [1 if article["label"] == "fake" else 0 for article in data["articles"]]
 
 # Clean the texts
 cleaned_texts = [clean_text(text) for text in texts]
@@ -31,8 +30,11 @@ cleaned_texts = [clean_text(text) for text in texts]
 vectorized_texts = vectorizer.transform(cleaned_texts)
 
 # List all model files in the model directory
-model_filenames = [f for f in os.listdir(model_directory) if f.endswith(
-    '.joblib') and f != 'vectorizer.joblib']
+model_filenames = [
+    f
+    for f in os.listdir(model_directory)
+    if f.endswith(".joblib") and f != "vectorizer.joblib"
+]
 
 # Evaluate each model
 for model_filename in model_filenames:
@@ -50,34 +52,52 @@ for model_filename in model_filenames:
         predicted_probas = None
 
     # Convert predicted labels from numeric to string for display
-    predicted_labels_str = ['fake' if label ==
-                            1 else 'true' for label in predicted_labels]
-    true_labels_str = ['fake' if label ==
-                       1 else 'true' for label in true_labels]
+    predicted_labels_str = [
+        "fake" if label == 1 else "true" for label in predicted_labels
+    ]
+    true_labels_str = ["fake" if label == 1 else "true" for label in true_labels]
 
     # Evaluate the predictions
     accuracy = accuracy_score(true_labels, predicted_labels)
-    model_name = model_filename.replace('model_', '').replace(
-        '.joblib', '').replace('_', ' ').title()
-    print(colored(f"{model_name} Accuracy: {accuracy}",
-          'green' if accuracy > 0.7 else 'red'))
-    print(Fore.YELLOW + classification_report(true_labels,
-          predicted_labels) + Style.RESET_ALL)
-    print(Fore.CYAN + str(confusion_matrix(true_labels,
-          predicted_labels)) + Style.RESET_ALL)
+    model_name = (
+        model_filename.replace("model_", "")
+        .replace(".joblib", "")
+        .replace("_", " ")
+        .title()
+    )
+    print(
+        colored(
+            f"{model_name} Accuracy: {accuracy}", "green" if accuracy > 0.7 else "red"
+        )
+    )
+    print(
+        Fore.YELLOW
+        + classification_report(true_labels, predicted_labels)
+        + Style.RESET_ALL
+    )
+    print(
+        Fore.CYAN
+        + str(confusion_matrix(true_labels, predicted_labels))
+        + Style.RESET_ALL
+    )
 
     # Print the predictions alongside the true labels, predicted labels, and texts
-    for i, (text, true_label, predicted_label) in enumerate(zip(texts, true_labels_str, predicted_labels_str)):
+    for i, (text, true_label, predicted_label) in enumerate(
+        zip(texts, true_labels_str, predicted_labels_str)
+    ):
         print(Fore.MAGENTA + f"Text: {text}" + Style.RESET_ALL)
-        true_label_color = 'green' if true_label == predicted_label else 'red'
-        predicted_label_color = 'green' if true_label == predicted_label else 'red'
-        print(f"True Label: {colored(true_label, true_label_color)}, Predicted Label: {
-              colored(predicted_label, predicted_label_color)}")
+        true_label_color = "green" if true_label == predicted_label else "red"
+        predicted_label_color = "green" if true_label == predicted_label else "red"
+        print(
+            f"True Label: {colored(true_label, true_label_color)}, Predicted Label: {
+              colored(predicted_label, predicted_label_color)}"
+        )
 
         if predicted_probas is not None:
             fake_prob = predicted_probas[i][1]  # Probability for 'fake'
             true_prob = predicted_probas[i][0]  # Probability for 'true'
             print(
-                f"Predicted Probabilities -> True: {true_prob:.2f}, Fake: {fake_prob:.2f}")
+                f"Predicted Probabilities -> True: {true_prob:.2f}, Fake: {fake_prob:.2f}"
+            )
 
         print()  # New line for better readability
