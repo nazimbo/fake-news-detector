@@ -11,8 +11,16 @@ load_dotenv()  # Load environment variables
 
 # Initialize the Flask application
 app = Flask(__name__)
+
 # Restrict CORS to frontend URL only
-CORS(app, origins=['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000', 'http://127.0.0.1:3000'])
+CORS(app, origins=[
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://your-app-name.vercel.app',  # Add your Vercel URL
+    'https://*.vercel.app'  # Allow all Vercel preview deployments
+])
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

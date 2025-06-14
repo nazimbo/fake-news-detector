@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000';
+
 const news = ref("");
 const resultValeur = ref("");
 const resultClass = ref("");
@@ -25,7 +27,7 @@ async function checkNews() {
   errorMessage.value = "";
 
   try {
-    const response = await axios.post("http://127.0.0.1:5000/predict", newsJson);
+  const response = await axios.post(`${API_URL}/predict`, newsJson);
     resultValeur.value = response.data.prediction;
     modelName.value = response.data.model;
     const probabilities = response.data.probabilities;
@@ -40,11 +42,17 @@ async function checkNews() {
     console.log(response.data.model);
     console.log(probability.value);
   } catch (error) {
-    console.error(error);
-    errorMessage.value = "An error occurred while fetching the prediction. Please try again.";
-  } finally {
-    isLoading.value = false;
+  console.error(error);
+  if (error.response) {
+    errorMessage.value = `Server error: ${error.response.data.error || 'Unknown error'}`;
+  } else if (error.request) {
+    errorMessage.value = "Cannot connect to server. Please check if the API is running.";
+  } else {
+    errorMessage.value = "An error occurred while making the request.";
   }
+} finally {
+  isLoading.value = false;
+}
 }
 </script>
 
