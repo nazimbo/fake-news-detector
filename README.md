@@ -10,17 +10,46 @@ fake-news-detector/
 │   ├── app.py                 # Main Flask application
 │   ├── detector.py            # Prediction logic
 │   ├── data_functions.py      # Data processing utilities
+│   ├── data_preparation.py    # Data preprocessing pipeline
 │   ├── comparison_functions.py # Model comparison utilities
 │   ├── trainer_main.py        # Model training script
 │   ├── trainer_hyper.py       # Hyperparameter tuning
+│   ├── install_nltk.py        # NLTK data installation script
 │   ├── dataset/               # Training data
-│   ├── models/                # Trained ML models
+│   │   ├── cleaned_dataset.csv # Processed dataset
+│   │   ├── fake.csv           # Fake news articles
+│   │   └── true.csv           # Real news articles
+│   ├── models/                # Standard trained ML models
+│   │   ├── model_logistic_regression.joblib
+│   │   ├── model_naive_bayes.joblib
+│   │   ├── model_random_forest.joblib
+│   │   └── vectorizer.joblib
+│   ├── models_hyperparams/    # Hyperparameter-tuned models
+│   │   ├── best_model_logistic_regression.joblib
+│   │   ├── best_model_naive_bayes.joblib
+│   │   └── vectorizer.joblib
 │   ├── graphics/              # Performance visualizations
-│   └── requirements.txt       # Python dependencies
+│   │   ├── classification_report.png
+│   │   ├── confusion_matrix.png
+│   │   └── roc_curve.png
+│   ├── test_articles.json     # Test data for validation
+│   ├── notes.txt              # Development notes
+│   ├── requirements.txt       # Python dependencies
+│   ├── runtime.txt            # Python version for deployment
+│   ├── render.yaml            # Render deployment config
+│   └── render_build.sh        # Build script for deployment
 ├── frontend/                   # Vue.js web application
 │   ├── src/                   # Source code
-│   ├── public/                # Static assets
-│   └── package.json           # Node.js dependencies
+│   │   ├── App.vue            # Main Vue component
+│   │   ├── main.js            # Application entry point
+│   │   ├── style.css          # Global styles
+│   │   └── assets/            # Static assets
+│   ├── public/                # Public static files
+│   ├── package.json           # Node.js dependencies
+│   ├── vite.config.js         # Vite configuration
+│   ├── tailwind.config.js     # Tailwind CSS config
+│   ├── postcss.config.js      # PostCSS configuration
+│   └── index.html             # HTML template
 └── README.md                  # This file
 ```
 
