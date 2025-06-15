@@ -6,6 +6,16 @@ import os
 import logging
 import os
 from dotenv import load_dotenv
+import nltk
+
+# Download required NLTK data
+try:
+    nltk.download('stopwords', quiet=True)
+    nltk.download('wordnet', quiet=True)
+    nltk.download('punkt', quiet=True)
+    logging.info("NLTK resources downloaded successfully")
+except Exception as e:
+    logging.error(f"Error downloading NLTK resources: {str(e)}")
 
 load_dotenv()  # Load environment variables
 
