@@ -31,7 +31,7 @@ CORS(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://fake-news-detector-eta.vercel.app",
-        "https://*.vercel.app",  # Allow all Vercel preview deployments
+        # "https://*.vercel.app",  # Commented out - too permissive for production
     ],
 )
 
@@ -169,10 +169,12 @@ def predict():
         )
 
     except Exception as e:
-        logger.error(f"Error in prediction: {str(e)}")
-        logger.error(f"Error type: {type(e).__name__}")
-        import traceback
-        logger.error(f"Traceback: {traceback.format_exc()}")
+        # Log minimal error info for debugging without exposing sensitive details
+        logger.error(f"Error in prediction: {type(e).__name__}")
+        # Only log full traceback in development
+        if app.debug:
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({"error": "Internal server error occurred"}), 500
 
 
